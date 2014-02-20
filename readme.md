@@ -32,7 +32,9 @@ All segments in any of the supported types will be simplified (including holes i
 
 ## examples
 
-convert a CSV with lat/lon columns into geojson, then simplify that geojson, then open it in [geojson.io](http://geojson.io/):
+convert a CSV with lat/lon columns into geojson, then simplify that geojson, then open it in [geojson.io](http://geojson.io/)
+
+CSV is from my GPS logger and was my bike commute this morning
 
 ```sh
 npm install simplify-geojson geojsonio-cli csv2geojson -g

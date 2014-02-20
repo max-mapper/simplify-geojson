@@ -18,5 +18,13 @@
   },
   "devDependencies": {
     "tape": "~2.4.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maxogden/simplify-geojson.git"
+  },
+  "bugs": {
+    "url": "https://github.com/maxogden/simplify-geojson/issues"
+  },
+  "homepage": "https://github.com/maxogden/simplify-geojson"
 }

@@ -1,0 +1,22 @@
+{
+  "name": "simplify-geojson",
+  "version": "0.0.1",
+  "description": "apply douglas-peucker line simplification to geojson features or feature collections in JS or on the CLI",
+  "main": "index.js",
+  "bin": {
+    "simplify-geojson": "./cli.js"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "author": "max ogden",
+  "license": "BSD",
+  "dependencies": {
+    "simplify-geometry": "0.0.1",
+    "minimist": "0.0.7",
+    "concat-stream": "~1.4.1"
+  },
+  "devDependencies": {
+    "tape": "~2.4.2"
+  }
+}

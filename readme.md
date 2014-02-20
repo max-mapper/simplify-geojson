@@ -13,14 +13,6 @@ cat data.geojson | simplify-geojson -t 0.01
 
 tolerance is specified by either `-t` or `--tolerance` and is a number in degrees (e.g. lat/lon distance). 1 degree is roughly equivalent to 69 miles. the default is 0.001, which is around a city block long
 
-#### example
-
-simplify alaska and count the number of lines of the simplified geojson output (tweak `-t` to see how it affects length):
-
-```sh
-curl https://raw.github.com/johan/world.geo.json/master/countries/USA/AK.geo.json | simplify-geojson -t 0.01 | wc -l
-```
-
 ### JS
 
 ```js
@@ -37,3 +29,24 @@ var simplified = simplify(geojson, tolerance)
 - FeatureCollection with any of the above
 
 All segments in any of the supported types will be simplified (including holes in polygons, for instance)
+
+## examples
+
+convert a CSV with lat/lon columns into geojson, then simplify that geojson, then open it in [geojson.io](http://geojson.io/):
+
+```sh
+npm install simplify-geojson geojsonio-cli csv2geojson -g
+curl https://raw.github.com/maxogden/simplify-geojson/master/test-data/oakland-route.csv | \
+  csv2geojson --lat "LATITUDE N/S" --lon "LONGITUDE E/W" --line true | \
+  simplify-geojson -t 0.001 | \
+  geojsonio
+```
+
+simplify alaska's border outline and count the number of lines of the simplified geojson output (tweak `-t` to see how it affects length):
+
+```sh
+curl https://raw.github.com/johan/world.geo.json/master/countries/USA/AK.geo.json | \
+  simplify-geojson -t 0.01 | \
+  wc -l
+```
+

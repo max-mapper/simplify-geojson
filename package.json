@@ -1,7 +1,7 @@
 {
   "name": "simplify-geojson",
-  "version": "0.0.1",
-  "description": "apply douglas-peucker line simplification to geojson features or feature collections in JS or on the CLI",
+  "version": "0.0.2",
+  "description": "apply ramer-douglas-peucker line simplification to geojson features or feature collections in JS or on the CLI",
   "main": "index.js",
   "bin": {
     "simplify-geojson": "./cli.js"

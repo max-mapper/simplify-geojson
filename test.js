@@ -1,4 +1,3 @@
-// TODO "real" test suite
 var test = require('tape')
 var fs = require('fs')
 var simplify = require('./')

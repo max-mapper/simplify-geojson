@@ -4,7 +4,7 @@ module.exports = function(geojson, tolerance, dontClone) {
   if (!dontClone) geojson = JSON.parse(JSON.stringify(geojson)) // clone obj
   if (geojson.features) return simplifyFeatureCollection(geojson, tolerance)
   else if (geojson.type && geojson.type === "Feature") return simplifyFeature(geojson, tolerance)
-  else return new Error('FeatureCollection or individual LineString Feature required')
+  else return new Error('FeatureCollection or individual Feature required')
 }
 
 // modifies in-place

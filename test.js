@@ -43,6 +43,15 @@ test('FeatureCollection w/ a MultiPolygon in it', function (t) {
   t.end()
 })
 
+test('Polygon', function (t) {
+  var fsMp = JSON.parse(fs.readFileSync('./test-data/polygon.geojson'))
+  var len = JSON.stringify(fsMp, null, '  ').split('\n').length
+  var simplified = simplify(fsMp, 0.5)
+  var newLen = JSON.stringify(simplified, null, '  ').split('\n').length
+  t.true(newLen < len, 'should get simplified (' + newLen + ' < ' + len + ')')
+  t.end()
+})
+
 test('FeatureCollection w/ a MultiPolygon in it (cli)', function (t) {
   t.plan(1)
 

@@ -3,6 +3,7 @@ var fs = require('fs')
 var concat = require('concat-stream')
 var child_process = require('child_process')
 var spawn = child_process.spawn
+var exec = child_process.exec
 var simplify = require('./')
 
 test('FeatureCollection w/ a LineString in it', function (t) {
@@ -58,6 +59,25 @@ test('FeatureCollection w/ a MultiPolygon in it (cli)', function (t) {
     var geoJson = JSON.parse(buffer.toString())
     var newLen = JSON.stringify(geoJson, null, '  ').split('\n').length
     t.true(newLen < len, 'should get simplified (' + newLen + ' < ' + len + ')')
+  }))
+})
+
+test('curl from alaska example test', function (t) {
+  t.plan(1)
+
+  var cmd = 'curl -s https://rawgit.com/johan/world.geo.json/master/countries/USA/AK.geo.json | '
+  cmd += 'simplify-geojson -t 0.01 | '
+  cmd += 'wc -l'
+
+  var proc = exec(cmd)
+
+  proc.stderr.on('data', function (data) {
+    t.error(data.toString(), 'does not error')
+  })
+
+  proc.stdout.pipe(concat(function (buffer) {
+    var len = JSON.parse(buffer.toString())
+    t.false(isNaN(+len), 'got a valid number back (' + len + ')')
   }))
 })
 

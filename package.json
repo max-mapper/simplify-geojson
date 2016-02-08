@@ -12,7 +12,7 @@
   "author": "max ogden",
   "license": "BSD",
   "dependencies": {
-    "simplify-geometry": "0.0.1",
+    "simplify-geometry": "0.0.2",
     "minimist": "0.0.7",
     "concat-stream": "~1.4.1"
   },

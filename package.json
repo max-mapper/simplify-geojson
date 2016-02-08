@@ -7,7 +7,7 @@
     "simplify-geojson": "./cli.js"
   },
   "scripts": {
-    "test": "node test.js"
+    "test": "standard && node test.js"
   },
   "author": "max ogden",
   "license": "BSD",
@@ -17,6 +17,7 @@
     "concat-stream": "~1.4.1"
   },
   "devDependencies": {
+    "standard": "^6.0.4",
     "tape": "~2.4.2"
   },
   "repository": {

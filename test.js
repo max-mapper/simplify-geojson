@@ -52,6 +52,15 @@ test('Polygon', function (t) {
   t.end()
 })
 
+test('MultiLineString', function (t) {
+  var fsMp = JSON.parse(fs.readFileSync('./test-data/multilinestring.geojson'))
+  var len = JSON.stringify(fsMp, null, '  ').split('\n').length
+  var simplified = simplify(fsMp, 0.5)
+  var newLen = JSON.stringify(simplified, null, '  ').split('\n').length
+  t.true(newLen < len, 'should get simplified (' + newLen + ' < ' + len + ')')
+  t.end()
+})
+
 test('FeatureCollection w/ a MultiPolygon in it (cli)', function (t) {
   t.plan(1)
 

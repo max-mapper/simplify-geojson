@@ -4,15 +4,24 @@ var simplify = require('./')
 var fs = require('fs')
 var argv = require('minimist')(process.argv.slice(2))
 var concat = require('concat-stream')
+var usage = fs.readFileSync('./usage.txt', { encoding: 'utf8' })
 var stdin
 
 var tolerance = argv.t || argv.tolerance || 0.001
 tolerance = +tolerance // cast to Number
 
-if (!process.stdin.isTTY || argv._[0] === '-') {
+if (argv.help || argv.h) {
+  console.log(usage)
+  process.exit()
+}
+
+if (argv._[0] && argv._[0] !== '-') {
+  stdin = fs.createReadStream(argv._[0])
+} else if (!process.stdin.isTTY || argv._[0] === '-') {
   stdin = process.stdin
 } else {
-  stdin = fs.createReadStream(argv._[0])
+  console.log(usage)
+  process.exit(1)
 }
 
 // buffer all input TODO streaming simplification

@@ -10,7 +10,7 @@
     "test": "standard && node test.js"
   },
   "author": "max ogden",
-  "license": "BSD",
+  "license": "BSD-2-Clause",
   "dependencies": {
     "simplify-geometry": "0.0.2",
     "minimist": "0.0.7",

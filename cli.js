@@ -4,7 +4,8 @@ var simplify = require('./')
 var fs = require('fs')
 var argv = require('minimist')(process.argv.slice(2))
 var concat = require('concat-stream')
-var usage = fs.readFileSync('./usage.txt', { encoding: 'utf8' })
+var path = require('path')
+var usage = fs.readFileSync(path.join(__dirname, 'usage.txt'), { encoding: 'utf8' })
 var stdin
 
 var tolerance = argv.t || argv.tolerance || 0.001

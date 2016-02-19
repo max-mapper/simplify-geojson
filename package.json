@@ -1,7 +1,7 @@
 {
   "name": "simplify-geojson",
   "description": "Apply Ramer-Douglas-Peucker line simplification to GeoJSON features or feature collections in JS or on the CLI",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "max ogden",
   "bin": {
     "simplify-geojson": "./cli.js"

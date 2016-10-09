@@ -59,6 +59,10 @@ curl https://rawgit.com/johan/world.geo.json/master/countries/USA/AK.geo.json | 
   wc -l
 ```
 
+## Contributing
+
+Contributors welcome! Please read the [contributing guidelines](contributing.md) before getting started.
+
 ## License
 
 [BSD-2-Clause](https://spdx.org/licenses/BSD-2-Clause.html)

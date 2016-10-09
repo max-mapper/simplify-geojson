@@ -1,13 +1,22 @@
 # simplify-geojson
 
-Apply [Ramer–Douglas–Peucker](https://en.wikipedia.org/wiki/Ramer%E2%80%93Douglas%E2%80%93Peucker_algorithm) line simplification to [GeoJSON](http://www.geojson.org/) features or feature collections in JS or on the CLI. This module uses https://github.com/seabre/simplify-geometry for the simplification and wraps it in a interface for easily simplifying GeoJSON.
+Apply [Ramer–Douglas–Peucker](https://en.wikipedia.org/wiki/Ramer%E2%80%93Douglas%E2%80%93Peucker_algorithm) line simplification to [GeoJSON](http://www.geojson.org/) features or feature collections in JS or on the CLI.
 
 [![NPM](https://nodei.co/npm/simplify-geojson.png)](https://nodei.co/npm/simplify-geojson/)
+
+This module uses https://github.com/seabre/simplify-geometry for the simplification and wraps it in a interface for easily simplifying GeoJSON.
+
+## Install
+
+```
+npm install simplify-geojson
+```
+
+## Usage
 
 ### CLI
 
 ```sh
-npm install simplify-geojson -g
 cat data.geojson | simplify-geojson -t 0.01
 ```
 
@@ -30,7 +39,7 @@ var simplified = simplify(geojson, tolerance)
 
 All segments in any of the supported types will be simplified (including holes in polygons, for instance).
 
-## examples
+## Examples
 
 Convert a CSV with lat/lon columns into geojson, then simplify that geojson, then open it in [geojson.io](http://geojson.io/) (CSV is from my GPS logger and was my bike commute this morning):
 
@@ -50,6 +59,10 @@ curl https://rawgit.com/johan/world.geo.json/master/countries/USA/AK.geo.json | 
   wc -l
 ```
 
+## Contributing
+
+Contributors welcome! Please read the [contributing guidelines](contributing.md) before getting started.
+
 ## License
 
-BSD
+[BSD-2-Clause](https://spdx.org/licenses/BSD-2-Clause.html)

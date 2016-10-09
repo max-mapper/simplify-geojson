@@ -1,9 +1,9 @@
 var test = require('tape')
 var fs = require('fs')
 var concat = require('concat-stream')
-var child_process = require('child_process')
-var spawn = child_process.spawn
-var exec = child_process.exec
+var proc = require('child_process')
+var spawn = proc.spawn
+var exec = proc.exec
 var simplify = require('./')
 
 test('FeatureCollection w/ a LineString in it', function (t) {
@@ -84,7 +84,7 @@ test('curl from alaska example test', function (t) {
   t.plan(1)
 
   var cmd = 'curl -s https://rawgit.com/johan/world.geo.json/master/countries/USA/AK.geo.json | '
-  cmd += 'simplify-geojson -t 0.01 | '
+  cmd += './cli.js -t 0.01 | '
   cmd += 'wc -l'
 
   var proc = exec(cmd)

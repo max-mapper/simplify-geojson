@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "concat-stream": "~1.4.1",
-    "minimist": "0.0.7",
+    "minimist": "1.2.5",
     "simplify-geometry": "0.0.2"
   },
   "devDependencies": {
